@@ -103,6 +103,12 @@ int main(){
     cudaDeviceSynchronize();
     fillMag<<<grid2,block2>>>(mag,nx,ny,u,v);
     cudaDeviceSynchronize();
+    double *nu, *nv;
+    cudaMalloc(&nu, N*sizeof(double));
+    cudaMalloc(&nv, N*sizeof(double));
+    normalizeVelocityComponent<<<grid2,block2>>>(nu,u,mag,nx,ny,1e-8);
+    normalizeVelocityComponent<<<grid2,block2>>>(nv,v,mag,nx,ny,1e-8);
+    cudaDeviceSynchronize();
     
     /* MIERZENIE CZASU */
     auto t5 = chrono::high_resolution_clock::now();
@@ -121,13 +127,17 @@ int main(){
     cudaMemcpy(magC,mag,N*sizeof(double),cudaMemcpyDeviceToHost);
     bool *brzegC = new bool[N];
     cudaMemcpy(brzegC,brzeg,N*sizeof(bool),cudaMemcpyDeviceToHost);
+    double *nuC = new double[N];
+    double *nvC = new double[N];
+    cudaMemcpy(nuC,nu,N*sizeof(double),cudaMemcpyDeviceToHost);
+    cudaMemcpy(nvC,nv,N*sizeof(double),cudaMemcpyDeviceToHost);
     ofstream file("psi.dat");
     for (int i=0;i<=nx;i++){
         for (int j=0;j<=ny;j++){
             file
             <<psiC[i*(ny+1)+j]<<'\t'
-            <<uC[i*(ny+1)+j]<<'\t'
-            <<vC[i*(ny+1)+j]<<'\t'
+            <<nuC[i*(ny+1)+j]<<'\t'
+            <<nvC[i*(ny+1)+j]<<'\t'
             <<magC[i*(ny+1)+j]<<'\t'
             <<brzegC[i*(ny+1)+j]<<'\n';
         }
@@ -210,6 +220,10 @@ int main(){
     gfile.close();
     delete [] gN;
     delete [] brzegC;
+    cudaFree(nu);
+    cudaFree(nv);
+    delete [] nuC;
+    delete [] nvC;
 
     /* MIERZENIE CZASU */
     auto t10 = chrono::high_resolution_clock::now();

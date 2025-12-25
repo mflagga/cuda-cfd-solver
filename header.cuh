@@ -355,3 +355,12 @@ void petlaRelaxCPU(double *gC, double *gs, int N, int ITMAX, double *gN, int mma
         if (it%co_ktora==0) zapiszGCPU(gfile, nx, ny, it, gC);
     }
 }
+
+__global__
+void normalizeVelocityComponent(double *nu, double *u, double *mag, int nx, int ny, double TOL){
+    int idx = blockIdx.x*blockDim.x+threadIdx.x;
+    int idy = blockIdx.y*blockDim.y+threadIdx.y;
+    if (idx<=nx && idy<=ny && abs(mag[idx*(ny+1)+idy])>=TOL){
+        nu[idx*(ny+1)+idy]=u[idx*(ny+1)+idy]/mag[idx*(ny+1)+idy];
+    }
+}

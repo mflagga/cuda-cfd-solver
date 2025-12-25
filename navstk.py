@@ -6,13 +6,10 @@ data = np.loadtxt('psi.dat')
 misc = np.loadtxt('misc.dat')
 
 psi = data[:,0]
-u = data[:,1]
-v = data[:,2]
+nu = data[:,1]
+nv = data[:,2]
 mag = data[:,3]
 brzeg = data[:,4]
-
-nu = np.divide(u, mag, out=np.zeros_like(u), where=mag!=0)
-nv = np.divide(v, mag, out=np.zeros_like(v), where=mag!=0)
 
 nx = int(misc[0])
 ny = int(misc[1])
