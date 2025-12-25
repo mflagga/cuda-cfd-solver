@@ -1,7 +1,7 @@
 .SUFFIXES:
 
 CC = nvcc
-CFLAGS = -arch=sm_89 -O3
+CFLAGS = -arch=native -O3
 EXEC = fluid.out
 PC = python3
 FRAMESDIR = frames
