@@ -12,7 +12,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
 * **Visualization Pipeline:** Automated generation of velocity fields and transport animations using Matplotlib and FFmpeg.
 
 ## Visuals
-*(Here you can upload a gif of your simulation later)*
+![Simulation Demo](images/transport.gif)
 
 ## Requirements
 * NVIDIA GPU with CUDA Toolkit installed
