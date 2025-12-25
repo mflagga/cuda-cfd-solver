@@ -1,0 +1,16 @@
+# Skompilowane pliki
+fluid
+*.o
+*.exe
+
+# Pliki danych (generowane przez program)
+*.dat
+
+# Obrazy i wideo
+*.png
+*.mp4
+frames/
+__pycache__/
+
+# Pliki systemowe
+.DS_Store

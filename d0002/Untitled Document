@@ -1,0 +1,30 @@
+/* PARAMETRY */
+    // symulacji
+    const int nx=512;
+    const int ny=128;
+    const double d=0.01;
+    const int itmax=20000;
+    const int N=(nx+1)*(ny+1);
+    // geometrii
+    const int i1a=128-8;
+    const int i1b=128+8;
+    const int j1=64+16;
+
+    const int i2a=128+256-8;
+    const int i2b=128+256+8;
+    const int j2=ny-64-16;
+    // modelu cieczy
+    const double Q=5;
+    const double mu=1;
+    int Om;
+    const double rho=1;
+    // modelu adwekcji dyfuzji
+    const int ii=nx/2;
+    const int ji=ny/2;
+    const double s=10*d;
+    const double D=0.002;
+    const int mmax=20;
+    const double tmax=3.0;
+    const int fps = 60;
+    const double seconds = 15.0;
+    const int proc = 2;
