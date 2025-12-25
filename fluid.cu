@@ -55,7 +55,7 @@ int main(){
     double *psi, *zeta;
     cudaMalloc(&psi, N*sizeof(double));
     cudaMalloc(&zeta, N*sizeof(double));
-    int tp2 = 8; // architektura wypełniania macierzy; po testach - najszybsze jest 8
+    int tp2 = 8; // architektura wypełniania macierzy; po testach - dla (512,128) najszybsze jest 8
     dim3 block2 = dim3(tp2,tp2);
     dim3 grid2 = dim3((nx+block2.x+1)/block2.x,(ny+block2.y+1)/block2.y);
     zero2D<<<grid2,block2>>>(psi, nx, ny);
