@@ -1,7 +1,6 @@
 # Skompilowane pliki
 fluid
-*.o
-*.exe
+*.out
 
 # Pliki danych (generowane przez program)
 *.dat

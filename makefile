@@ -2,7 +2,7 @@
 
 CC = nvcc
 CFLAGS = -arch=sm_89 -O3
-EXEC = fluid
+EXEC = fluid.out
 PC = python3
 FRAMESDIR = frames
 FPS = $(shell cat fps.dat)

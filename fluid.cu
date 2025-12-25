@@ -22,7 +22,7 @@ int main(){
     const int i2b=3*nx/4+4; // prawa sciana
     const int j2=ny/2; // zwis
     // modelu cieczy
-    const double Q=50; // ciśnienie wewnątrz
+    const double Q=35; // ciśnienie wewnątrz
     const double mu=1; // lepkość cieczy
     const double rho=1; // gęstość cieczy
     // modelu adwekcji dyfuzji
