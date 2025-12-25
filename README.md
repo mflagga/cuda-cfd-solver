@@ -28,7 +28,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
     ```
 2.  **Run simulation and generate data:**
     ```bash
-    ./fluid
+    ./fluid.out
     ```
 3.  **Generate visualizations:**
     ```bash
