@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+import os
 
 data = np.loadtxt('psi.dat')
 misc = np.loadtxt('misc.dat')
@@ -32,7 +33,8 @@ plt.contour(psi.reshape((nx+1,ny+1)).T, cmap=bbr_cmap, levels=20)
 plt.title(rf'Stream function $\psi(i,j)$')
 plt.xlim(0,nx+1)
 plt.ylim(0,ny+1)
-plt.savefig('flow.png')
+filename = os.path.join('images','stream.png')
+plt.savefig(filename)
 plt.close()
 
 skip = nx//64
@@ -47,7 +49,8 @@ plt.xlim(0,nx+1)
 plt.colorbar(orientation='horizontal')
 plt.title(rf'Velocity field with corresponding magnitude $\vec{{v}}$')
 plt.ylim(0,ny+1)
-plt.savefig('vfieldc.png')
+filename = os.path.join('images','vfieldc.png')
+plt.savefig(filename)
 plt.close()
 
 
@@ -57,7 +60,8 @@ plt.quiver(X[::skip, ::skip],Y[::skip, ::skip],NU[::skip, ::skip],NV[::skip, ::s
 plt.xlim(0,nx+1)
 plt.title(rf'Normalized velocity field $\vec{{v}}/|\vec{{v}}|$')
 plt.ylim(0,ny+1)
-plt.savefig('vfieldb.png')
+filename = os.path.join('images','vfieldb.png')
+plt.savefig(filename)
 plt.close()
 
 
@@ -67,5 +71,6 @@ plt.imshow(brzeg.reshape((nx+1,ny+1)).T, origin='lower', cmap='cividis')
 plt.xlim(0,nx+1)
 plt.ylim(0,ny+1)
 plt.title('System geometry')
-plt.savefig('brzeg.png')
+filename = os.path.join('images','brzeg.png')
+plt.savefig(filename)
 plt.close()
