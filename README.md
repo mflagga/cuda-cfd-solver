@@ -14,6 +14,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
 ## Visuals
 ![Simulation Demo](images/transport.gif)
 ![Velocity field](images/vfieldb.png)
+![Velocity magnitude field](images/vfieldc.png)
 
 ## Requirements
 * NVIDIA GPU with CUDA Toolkit installed
