@@ -13,7 +13,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
 
 ## Visuals
 ![Simulation Demo](images/transport.gif)
-![Velocity field](images/vfieldc.png)
+![Velocity field](images/vfieldb.png)
 
 ## Requirements
 * NVIDIA GPU with CUDA Toolkit installed
