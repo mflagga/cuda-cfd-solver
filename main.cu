@@ -30,7 +30,7 @@ int main(){
     const int ji=ny/2; // współrzędna y pierwotnego rozkładu masy
     const double s=2.5*d; // odchylenie standardowe gaussianu
     const double D=0.002; // współczynnik dyfuzji
-    const int mmax=100; // liczba iteracji Picarda w niejawnym schemacie Crank - Nicolson
+    const int mmax=50; // liczba iteracji Picarda w niejawnym schemacie Crank - Nicolson
     // animacji
     const double tmax=3.0; // maksymalny czas w równaniu
     const int fps = 12; // liczba klatek na sekundę
