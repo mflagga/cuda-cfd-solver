@@ -9,8 +9,8 @@ FPS = $(shell cat fps.dat)
 
 all: flow.png vfieldc.png transport.mp4 vfieldb.png brzeg.png
 
-$(EXEC): fluid.cu header.cuh
-	$(CC) fluid.cu -o $(EXEC) $(CFLAGS)
+$(EXEC): main.cu header.cuh
+	$(CC) main.cu -o $(EXEC) $(CFLAGS)
 
 misc.dat psi.dat fps.dat mass.dat: $(EXEC)
 	./$(EXEC)
