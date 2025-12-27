@@ -5,9 +5,10 @@ CFLAGS = -arch=native -O3
 EXEC = fluid.out
 PC = python3
 FRAMESDIR = frames
+IMGDIR = images
 FPS = $(shell cat fps.dat)
 
-all: stream.png vfieldc.png transport.mp4 vfieldb.png brzeg.png
+all: $(IMGDIR)/stream.png $(IMGDIR)/vfieldc.png transport.mp4 $(IMGDIR)/vfieldb.png $(IMGDIR)/brzeg.png
 
 $(EXEC): main.cu header.cuh
 	$(CC) main.cu -o $(EXEC) $(CFLAGS)
@@ -15,7 +16,7 @@ $(EXEC): main.cu header.cuh
 misc.dat psi.dat fps.dat mass.dat: $(EXEC)
 	./$(EXEC)
 
-stream.png vfieldc.png vfieldb.png brzeg.png: psi.dat navstk.py misc.dat
+$(IMGDIR)/stream.png $(IMGDIR)/vfieldc.png $(IMGDIR)/vfieldb.png $(IMGDIR)/brzeg.png: psi.dat navstk.py misc.dat
 	$(PC) navstk.py
 
 $(FRAMESDIR)/.frames_done: misc.dat mass.dat mass.py
@@ -29,7 +30,7 @@ transport.mp4: $(FRAMESDIR)/.frames_done fps.dat
 clean:
 	rm -f $(EXEC)
 	rm -f fps.dat mass.dat misc.dat psi.dat
-	rm -f brzeg.png stream.png vfieldb.png vfieldc.png
+	rm -f $(IMGDIR)/*.png
 	rm -f $(FRAMESDIR)/frame_*.png
 	rm -f $(FRAMESDIR)/.frames_done
 	rm -f transport.mp4
