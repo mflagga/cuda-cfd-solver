@@ -33,9 +33,9 @@ transport.mp4: $(FRAMESDIR)/.frames_done fps.dat
 clean:
 	rm -f $(EXEC)
 	rm -f fps.dat mass.dat misc.dat psi.dat
-	rm -f $(IMGDIR)/*.png
+	#rm -f $(IMGDIR)/*.png
 	rm -f $(FRAMESDIR)/frame_*.png
 	rm -f $(FRAMESDIR)/.frames_done
-	rm -f transport.mp4
+	#rm -f transport.mp4
 
 .PHONY: all clean
