@@ -19,7 +19,10 @@ misc.dat psi.dat fps.dat mass.dat: $(EXEC)
 $(IMGDIR)/stream.png $(IMGDIR)/vfieldc.png $(IMGDIR)/vfieldb.png $(IMGDIR)/brzeg.png: psi.dat navstk.py misc.dat
 	$(PC) navstk.py
 
-$(FRAMESDIR)/.frames_done: misc.dat mass.dat mass.py
+$(FRAMESDIR): 
+	mkdir -p $(FRAMESDIR)
+
+$(FRAMESDIR)/.frames_done: misc.dat mass.dat mass.py $(FRAMESDIR)
 	rm -f $(FRAMESDIR)/frame_*.png
 	$(PC) mass.py
 	@touch $(FRAMESDIR)/.frames_done
