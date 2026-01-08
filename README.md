@@ -25,7 +25,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
     ```bash
     make
     ```
-2.  **Complie and run the simulation to generate data:**
+2.  **Compile and run the simulation to generate data:**
     ```bash
     nvcc main.cu -o fluid.out -arch=native -O3
     ./fluid.out
