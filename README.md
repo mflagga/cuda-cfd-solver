@@ -21,7 +21,7 @@ The solver leverages GPU parallelism (Red-Black Gauss-Seidel relaxation) to achi
 * FFmpeg
 
 ## Usage
-1.  **Build everything:**
+1.  **Build and run everything:**
     ```bash
     make
     ```
